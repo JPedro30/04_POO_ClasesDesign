@@ -7,7 +7,7 @@ public class Bicicleta {
     private int velocidad;
     private int id;
 
-    // Variables ESTATICAS
+    // Variables ESTATICAS es una variable que es comun a todos los objetos
     private static int numeroDeBicicletas = 0;
 
     public Bicicleta(){
@@ -22,7 +22,7 @@ public class Bicicleta {
     }
 
     public static int getNumeroDeBicicleta(){
-        //No podemos usar this
+        // No podemos usar this
         // return this.numeroDeBicicletas;
         return numeroDeBicicletas;
     }

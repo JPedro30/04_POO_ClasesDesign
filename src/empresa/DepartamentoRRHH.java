@@ -1,6 +1,6 @@
 package empresa;
 
-public class DepartamentoRRHH {
+class DepartamentoRRHH {
 
     private String nombreDepartamento = "Recurso Humanos";
 
@@ -9,7 +9,7 @@ public class DepartamentoRRHH {
         System.out.println("Esta clase solo es visible en el paquete 'empresa'");
     }
 
-    public void gestionarEmpresa(Empleado empleado){
+    public void gestionarEmpleado(Empleado empleado){
         System.out.println("\n--- Desde DepartamentoRRHH {mismo paquete 'empresa'} ---");
 
         // PUBLIC: SIEMPRE ACCESIBLE
@@ -47,11 +47,6 @@ public class DepartamentoRRHH {
         // desde aqui podemos gestionar todos los aspectos del empleado
         // excepto los privados
         gestionarEmpleado(nuevoEmpleado);
-    }
-
-    private void gestionarEmpleado(Empleado nuevoEmpleado) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'gestionarEmpleado'");
     }
 
 }

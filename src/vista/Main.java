@@ -1,5 +1,8 @@
 package vista;
 
+//import empresa.DepartamentoRRHH; NO SE PUEDE IMPORTAR YA QUE NO ES VISIBLE POR QUE NO TIENE MODIFICADOR
+import empresa.Empleado;
+import estaticos.Bicicleta;
 import excepciones.DniException;
 import figuras.Circulo;
 import figuras.Punto;
@@ -18,9 +21,91 @@ public class Main {
         //estudioPropiedadesYMetodos();
         //estudioEquals();
         //estudioArgumentos();
-        estudioPasoPorValorYReferencias();
+        //estudioPasoPorValorYReferencias();
+        //estudioMetodosEstaticos();
+        //estudioModificadores();
+        estudioHerencia();
+
+    }
+
+    private static void estudioHerencia() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'estudioHerencia'");
+    }
+
+    private static void estudioModificadores() {
+        // ACCESO A CLASES
+         System.out.println("--- 1. ACCESO A CLASES ---");
+
+        // ✅ PÚBLICO: Se puede acceder desde cualquier parte
+        Empleado empleado1 = new Empleado("Ana García", 35000);
+        System.out.println("✅ Puedo crear objeto Empleado (es public)");
+
+        // ❌ SIN MODIFICADOR: NO se puede acceder desde otro paquete
+        // DepartamentoRRHH rrhh = new DepartamentoRRHH();
+        System.out.println("❌ NO puedo crear objeto DepartamentoRRHH (sin modificador, solo visible en su paquete)");
 
 
+        // ACCESO A ATRIBUTOS Y METODOS
+        System.out.println("\n--- 2. ACCESO A ATRIBUTOS Y MÉTODOS ---");
+        // Probando acceso a miembros de Empleado
+        System.out.println("Intentando acceder a miembros de Empleado:");
+
+        // ATRIBUTOS CON LOS MODIFICADORES
+
+        // ✅ PUBLIC
+        empleado1.nombre = "Ana García López";
+        System.out.println("✅ nombre: " + empleado1.nombre);
+
+        // ❌ PRIVATE
+        // empleado1.salario = 40000;
+        System.out.println("❌ salario: NO ACCESIBLE (es private)");
+
+        // ❌ PROTECTED
+        // empleado1.numeroEmpleado = "EMP001";
+        System.out.println("❌ numeroEmpleado: NO ACCESIBLE (es protected, y no estamos en el mismo paquete ni heredamos)");
+        
+        // ❌ SIN MODIFICADOR
+        // empleado1.antiguedad = 5;
+        System.out.println("❌ antiguedad: NO ACCESIBLE (sin modificador, solo visible en el mismo paquete)");
+
+
+        // METODOS CON LOS MODIFICADORES
+        System.out.println("\n--- 3. ACCESO A MÉTODOS ---");
+
+        // ✅ PUBLIC
+        empleado1.mostrarInformacionBasica();
+
+        // ❌ PRIVATE
+        // empleado1.calcularImpuestos();
+        System.out.println("❌ calcularImpuestos(): NO ACCESIBLE (método privado)");
+
+        // ❌ PROTECTED
+        // empleado1.asignarNumeroEmpleado();
+        System.out.println("❌ asignarNumeroEmpleado(): NO ACCESIBLE (método protected)");
+
+        // ❌ SIN MODIFICADOR
+        // empleado1.actualizarAntiguedad();
+        System.out.println("❌ actualizarAntiguedad(): NO ACCESIBLE (método sin modificador)");
+
+
+        // METODOS QUE USA METODOS PRIVADOS
+        System.out.println("\n--- 4. MÉTODO PÚBLICO QUE USA MÉTODOS PRIVADOS ---");
+        System.out.println("Salario neto calculado: " + empleado1.calcularSalarioNeto() + "€");
+
+        System.out.println("\n--- 5. INFORMACIÓN COMPLETA (desde dentro de la clase) ---");
+        empleado1.mostrarInformacionCompleta();
+    }
+
+    private static void estudioMetodosEstaticos() {
+        Bicicleta bici1 = new Bicicleta(21, 27, 0);
+        Bicicleta bici2 = new Bicicleta(18, 24, 0);
+
+        System.out.println(bici1);
+        System.out.println(bici2);
+
+        //System.out.println(bici1.getNumeroDeBicicleta()); NO DEBERIA DE HACER FALTA USAR EL OBJETO PARA ACCEDER A LA VARIABLE ESTATICA YA QUE EL RESULTADO NO CAMBIA LLAME AL OBJETO QUE LLAME
+        System.out.println(Bicicleta.getNumeroDeBicicleta()); // ASI QUE MEJOR LLAMO DIRECTAMENTE A LA CLASE CON EL METODO PARA SABER EL VALOR DE LA VARIABLE
     }
 
     private static void estudioPasoPorValorYReferencias() {
