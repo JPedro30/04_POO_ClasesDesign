@@ -7,6 +7,9 @@ import excepciones.DniException;
 import figuras.Circulo;
 import figuras.Punto;
 import figuras.Rectangulo;
+import interfaces.Cebra;
+import interfaces.Leon;
+import interfaces.Rana;
 import modelo.Persona1;
 import modelo.Persona2;
 import modelo.Persona3;
@@ -24,13 +27,41 @@ public class Main {
         //estudioPasoPorValorYReferencias();
         //estudioMetodosEstaticos();
         //estudioModificadores();
-        estudioHerencia();
+        //estudioHerencia();
+        //estudioInterface();
 
     }
 
+    private static void estudioInterface() {
+        Leon leon=new Leon("mamifero", "sabana");
+        Cebra cebra=new Cebra("mamifero", "sabana");
+        Rana rana=new Rana("anfibio", "charca");
+        leon.acechar();
+        cebra.vigilar();
+        rana.acechar();
+        rana.vigilar();
+    }
+
     private static void estudioHerencia() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'estudioHerencia'");
+        System.out.println("╔════════════════════════════════════════╗");
+        System.out.println("║ HERENCIA Y POLIMORFISMO EN JAVA ║");
+        System.out.println("╚════════════════════════════════════════╝\n");
+
+
+        System.out.println("═══════════════════════════════════════════");
+        System.out.println(" INFORMACIÓN DE CADA TRABAJADOR");
+        System.out.println("═══════════════════════════════════════════\n");
+
+
+        System.out.println("\n═══════════════════════════════════════════");
+        System.out.println(" DEMOSTRACIÓN DE POLIMORFISMO");
+        System.out.println("═══════════════════════════════════════════\n");
+
+
+        System.out.println("\n═══════════════════════════════════════════");
+        System.out.println(" EXPLICACIÓN DEL POLIMORFISMO");
+        System.out.println("═══════════════════════════════════════════\n");
+
     }
 
     private static void estudioModificadores() {
