@@ -5,7 +5,7 @@ public class Consultor extends Trabajador{
     private double tarifaPorHora;
     private int horasTrabajadas;
 
-    public Consultor(String nombre, String dni, double tarifaPorHora, int horasTrabajadas) {
+    public Consultor(String nombre, String dni, double tarifaPorHora) {
         super(nombre, dni); // LLAMADA AL METODO PADRE
         this.tarifaPorHora = tarifaPorHora;
         this.horasTrabajadas = 0;

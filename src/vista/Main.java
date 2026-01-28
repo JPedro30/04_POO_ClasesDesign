@@ -7,6 +7,10 @@ import excepciones.DniException;
 import figuras.Circulo;
 import figuras.Punto;
 import figuras.Rectangulo;
+import herencia.Consultor;
+import herencia.Programador;
+import herencia.ProgramadorJunior;
+import herencia.Trabajador;
 import interfaces.Cebra;
 import interfaces.Leon;
 import interfaces.Rana;
@@ -47,20 +51,56 @@ public class Main {
         System.out.println("║ HERENCIA Y POLIMORFISMO EN JAVA ║");
         System.out.println("╚════════════════════════════════════════╝\n");
 
+        // Crear diferentes tipos de trabajadores
+        Programador prog1 = new Programador("Ana García", "12345678A", 2500);
+        ProgramadorJunior junior1 = new ProgramadorJunior("Carlos López", "87654321B", 800);
+        Consultor consultor1 = new Consultor("María Pérez", "11223344C", 45);
+
+        // El consultor registra sus horas
+        consultor1.registrarHoras(120);
+
 
         System.out.println("═══════════════════════════════════════════");
         System.out.println(" INFORMACIÓN DE CADA TRABAJADOR");
         System.out.println("═══════════════════════════════════════════\n");
+
+        prog1.mostrarInfo();
+        System.out.println();
+
+        junior1.mostrarInfo();
+        System.out.println();
+
+        consultor1.mostrarInfo();
 
 
         System.out.println("\n═══════════════════════════════════════════");
         System.out.println(" DEMOSTRACIÓN DE POLIMORFISMO");
         System.out.println("═══════════════════════════════════════════\n");
 
+        // POLIMORFISMO: Un array de Trabajadores que contiene objetos de diferentes clases
+        Trabajador[] trabajadores = { prog1, junior1, consultor1 };
+        System.out.println(" Lista de nóminas del mes:\n");
+        double totalNominas = 0;
 
+        // El MISMO método calcularPaga() se comporta diferente según el tipo real del objeto
+        for (Trabajador t : trabajadores) {
+        double paga = t.calculaPaga(); // ← POLIMORFISMO en acción
+        totalNominas += paga;
+        System.out.println(" " + t.nombre + " → " + paga + "€");
+        }
+        System.out.println("\n TOTAL NÓMINAS: " + totalNominas + "€");
+
+        
         System.out.println("\n═══════════════════════════════════════════");
         System.out.println(" EXPLICACIÓN DEL POLIMORFISMO");
         System.out.println("═══════════════════════════════════════════\n");
+
+        System.out.println(" Todos los objetos son de tipo Trabajador (clase padre)");
+        System.out.println(" Pero cada uno ejecuta SU PROPIA versión de calcularPaga():");
+        System.out.println(" • Programador: sueldo - 21% impuestos");
+        System.out.println(" • ProgramadorJunior: beca (sin impuestos)");
+        System.out.println(" • Consultor: tarifa × horas");
+        System.out.println("\n¡Esto es POLIMORFISMO! ");
 
     }
 
