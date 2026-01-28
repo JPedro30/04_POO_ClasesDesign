@@ -31,7 +31,7 @@ public class Main {
         //estudioPasoPorValorYReferencias();
         //estudioMetodosEstaticos();
         //estudioModificadores();
-        //estudioHerencia();
+        estudioHerencia();
         //estudioInterface();
 
     }
@@ -48,7 +48,7 @@ public class Main {
 
     private static void estudioHerencia() {
         System.out.println("╔════════════════════════════════════════╗");
-        System.out.println("║ HERENCIA Y POLIMORFISMO EN JAVA ║");
+        System.out.println("║     HERENCIA Y POLIMORFISMO EN JAVA    ║");
         System.out.println("╚════════════════════════════════════════╝\n");
 
         // Crear diferentes tipos de trabajadores
@@ -84,11 +84,11 @@ public class Main {
 
         // El MISMO método calcularPaga() se comporta diferente según el tipo real del objeto
         for (Trabajador t : trabajadores) {
-        double paga = t.calculaPaga(); // ← POLIMORFISMO en acción
-        totalNominas += paga;
-        System.out.println(" " + t.nombre + " → " + paga + "€");
+            double paga = t.calculaPaga(); // ← POLIMORFISMO en acción
+            totalNominas += paga;
+            System.out.println(" " + t.nombre + " -> " + paga + " euros");
         }
-        System.out.println("\n TOTAL NÓMINAS: " + totalNominas + "€");
+        System.out.println("\n TOTAL NÓMINAS: " + totalNominas + " euros");
 
         
         System.out.println("\n═══════════════════════════════════════════");
@@ -97,9 +97,9 @@ public class Main {
 
         System.out.println(" Todos los objetos son de tipo Trabajador (clase padre)");
         System.out.println(" Pero cada uno ejecuta SU PROPIA versión de calcularPaga():");
-        System.out.println(" • Programador: sueldo - 21% impuestos");
-        System.out.println(" • ProgramadorJunior: beca (sin impuestos)");
-        System.out.println(" • Consultor: tarifa × horas");
+        System.out.println(" - Programador: sueldo - 21% impuestos");
+        System.out.println(" - ProgramadorJunior: beca (sin impuestos)");
+        System.out.println(" - Consultor: tarifa x horas");
         System.out.println("\n¡Esto es POLIMORFISMO! ");
 
     }
